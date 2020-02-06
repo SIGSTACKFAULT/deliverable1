@@ -1,5 +1,4 @@
-  
-package war;
+package cards;
 
 /**
  *

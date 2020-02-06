@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import cards.Card;
+
 /**
  * A concrete class that represents any grouping of cards for a Game.
  * HINT, you might want to subclass this more than once.
