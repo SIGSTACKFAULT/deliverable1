@@ -1,13 +1,13 @@
 package cards;
 
+import java.util.List;
+
+
 /**
  *
  * @author knrta
  */
-public abstract class Card 
-{
-    //default modifier for child classes
-    
+public abstract class Card {
     /**
      * Students should implement this method for their specific children classes 
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
@@ -19,10 +19,10 @@ public abstract class Card
     /**
      * using Black Magic™, print a debug message with the caller's name and this card's string.
      */
-    protected void tell(){
+    protected final void tell(){
         String caller = new Throwable().fillInStackTrace().getStackTrace()[1].toString();
         String self = this.getClass().getSimpleName();
         System.err.printf("%s: (%s) %s", caller, self, this.toString());
     }
-    
+
 }
