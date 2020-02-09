@@ -24,6 +24,7 @@ abstract class RegularCard extends Card {
      * @param what Suit to inspect
      * @throws IllegalStateException if everything is on fire
      * @return "Spades","Hearts","Clubs","Diamonds"
+     * @author SIGSTACKFAULT
      */
     public static String getSuitName(Suit what){
         switch(what){
@@ -39,6 +40,7 @@ abstract class RegularCard extends Card {
      * Get the full name of this card's suit.
      * @throws IllegalStateException if everything is on fire
      * @return "Spades","Hearts","Clubs","Diamonds"
+     * @author SIGSTACKFAULT
      */
     public String getSuitName(){
         return RegularCard.getSuitName(this.suit);
@@ -49,6 +51,7 @@ abstract class RegularCard extends Card {
      * @param what Suit to inspect
      * @throws IllegalStateException if everything is on fire
      * @return 'S','H','C','D'
+     * @author SIGSTACKFAULT
      */
     public static char getSuitChar(Suit what){
         switch(what){
@@ -64,12 +67,18 @@ abstract class RegularCard extends Card {
      * get the single-char shorthand for this card's suit
      * @throws IllegalStateException if everything is on fire
      * @return 'S','H','C','D'
+     * @author SIGSTACKFAULT
      */
     public char getSuitChar(){
         return RegularCard.getSuitChar(this.suit);
     }
 
 
+    /**
+     * Returns the short card name, like "5D or KS"
+     * @return abbreviated card name
+     * @author SIGSTACKFAULT
+     */
     public String toString(){
         return String.format("%c%d", this.getSuitChar(), this.value);
     }
