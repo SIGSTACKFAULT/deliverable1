@@ -1,0 +1,10 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+charst = utf-8
+
+[**.java]
+indent_style = space
+indent_siz = 4
