@@ -20,6 +20,14 @@ abstract class RegularCard extends Card {
     public Suit getSuit(){return suit;}
 
     /**
+     * Self-explanitory constructor. Subclasses should override this javadoc.
+     */
+    public RegularCard(Suit suit, int value){
+        this.suit = suit;
+        this.value = value;
+    }
+
+    /**
      * Get the full name of the given suit.
      * throws IllegalStateException if the switch falls through.
      * @param what Suit to inspect
