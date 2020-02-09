@@ -6,7 +6,6 @@ package cards;
  * @author SIGSTACKFAULT
  */
 abstract class RegularCard extends Card {
-    private static final RuntimeException ILLEGAL_SUIT = new IllegalStateException("xkcd.com/2200");
 
     enum Suit {
         SPADES, HEARTS, CLUBS, DIAMONDS
@@ -42,7 +41,7 @@ abstract class RegularCard extends Card {
             case CLUBS:    return "Clubs";
             case DIAMONDS: return "Diamonds";
         }
-        throw ILLEGAL_SUIT;
+        throw new IllegalStateException("xkcd.com/2200");
     }
 
     /**
@@ -69,7 +68,7 @@ abstract class RegularCard extends Card {
             case CLUBS:    return 'C';
             case DIAMONDS: return 'D';
         }
-        throw ILLEGAL_SUIT;
+        throw new IllegalStateException("xkcd.com/2200");
     }
     
     /**
