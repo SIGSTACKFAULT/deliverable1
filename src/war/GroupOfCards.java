@@ -2,54 +2,22 @@ package war;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import cards.Card;
 
 /**
- * A concrete class that represents any grouping of cards for a Game.
- * HINT, you might want to subclass this more than once.
- * The group of cards has a maximum size attribute which is flexible for reuse.
- * @author dancye
+ * Seceretly just <code>ArrayList&lt;T extends Card&gt;</code>.
+ * Also adds a <code>shuffle()</code> method.
  */
-public class GroupOfCards {
-   
-    //The group of cards, stored in an ArrayList
-    private List<Card> cards;
-    private int size;//the size of the grouping
-    
-    public GroupOfCards(int size) {
-        this.size = size;
-        this.cards = new ArrayList<Card>();
-    }
-    
-    /**
-     * A method that will get the group of cards as an ArrayList
-     * @return the group of cards.
-     */
-    public List<Card> showCards() {
-        return cards;
-    }
-    
-    /**
-     * Shuffle the hand/deck/whatever this represents
-     */
-    public void shuffle() {
-        Collections.shuffle(cards);
-    }
+public class GroupOfCards<T extends Card> extends ArrayList<T> {
+    private static final long serialVersionUID = 1L; // throws a warning otherwise
 
     /**
-     * @return the size of the group of cards
+     * Shuffle the deck/hand/whatever.
+     * @return <code>this</code>, for fluent chaining.
      */
-    public int getSize() {
-        return size;
+    public GroupOfCards<T> shuffle() {
+        Collections.shuffle(this);
+        return this;
     }
-
-    /**
-     * @param givenSize the max size for the group of cards
-     */
-    public void setSize(int size) {
-        this.size = size;
-    }
-    
 }
