@@ -12,15 +12,13 @@ import cards.Card;
  * The group of cards has a maximum size attribute which is flexible for reuse.
  * @author dancye
  */
-public class GroupOfCards 
-{
+public class GroupOfCards {
    
     //The group of cards, stored in an ArrayList
     private List<Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int givenSize)
-    {
+    public GroupOfCards(int givenSize) {
         size = givenSize;
         cards = new ArrayList<Card>();
     }
@@ -29,13 +27,11 @@ public class GroupOfCards
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public List<Card> showCards()
-    {
+    public List<Card> showCards() {
         return cards;
     }
     
-    public void shuffle()
-    {
+    public void shuffle() {
         Collections.shuffle(cards);
     }
 
