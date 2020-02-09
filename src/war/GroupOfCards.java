@@ -18,9 +18,9 @@ public class GroupOfCards {
     private List<Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int givenSize) {
-        size = givenSize;
-        cards = new ArrayList<Card>();
+    public GroupOfCards(int size) {
+        this.size = size;
+        this.cards = new ArrayList<Card>();
     }
     
     /**
@@ -45,8 +45,8 @@ public class GroupOfCards {
     /**
      * @param givenSize the max size for the group of cards
      */
-    public void setSize(int givenSize) {
-        size = givenSize;
+    public void setSize(int size) {
+        this.size = size;
     }
     
 }
