@@ -2,6 +2,7 @@ package cards;
 
 /**
  * Intermediate class that both `AcesHigh` and `AcesLow` extend.
+ * Actually implements most of their behaviour.
  * @author SIGSTACKFAULT
  */
 abstract class RegularCard extends Card {
