@@ -15,7 +15,7 @@ import cards.Card;
 public class GroupOfCards {
    
     //The group of cards, stored in an ArrayList
-    private List<Card> cards;
+    private Card cards;
     private int size;//the size of the grouping
     
     public GroupOfCards(int givenSize) {
