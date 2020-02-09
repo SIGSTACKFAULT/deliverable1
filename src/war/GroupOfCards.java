@@ -31,6 +31,9 @@ public class GroupOfCards {
         return cards;
     }
     
+    /**
+     * Shuffle the hand/deck/whatever this represents
+     */
     public void shuffle() {
         Collections.shuffle(cards);
     }
