@@ -24,7 +24,7 @@ public class War {
             String input = sc.nextLine();
             // init game
             // close sc
-            // game.run()
+            // game.play()
         }
     }
     

@@ -1,15 +1,7 @@
 package war;
 
-/**
- * @author knrta
- */
-public class War {
+import cards.RegularCard;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        System.out.println("Hello, world!");
-    }
+public class War<T extends RegularCard> extends Game {
     
 }

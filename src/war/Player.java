@@ -6,7 +6,7 @@ package war;
  */
 public abstract class Player 
 {
-    private String playerID; //the unique ID for this player
+    private String name; //the unique ID for this player
     
     /**
      * A constructor that allows you to set the player's unique ID
@@ -14,26 +14,17 @@ public abstract class Player
      */
     public Player(String name)
     {
-        playerID= name;
+        name= name;
     }
     
     /**
-     * @return the playerID
+     * @return the name
      */
-    public String getPlayerID() 
+    public String getName() 
     {
-        return playerID;
+        return name;
     }
 
-    /**
-     * Ensure that the playerID is unique
-     * @param givenID the playerID to set
-     */
-    public void setPlayerID(String givenID) 
-    {
-        playerID = givenID;
-    }
-    
     /**
      * The method to be instantiated when you subclass the Player class
      * with your specific type of Player and filled in with logic to play your game.
