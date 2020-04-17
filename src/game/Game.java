@@ -1,6 +1,6 @@
 package game;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import cards.Card;
 
@@ -9,9 +9,9 @@ import cards.Card;
  * child of this class and instantiate the methods given.
  * @author dancye, 2018
  */
-public abstract class Game {
+public abstract class Game<T extends Player> {
     private final String gameName; //the title of the game
-    private List <Player> players; // the players of the game
+    private List <T> players; // the players of the game
     
     public Game(String name)
     {
