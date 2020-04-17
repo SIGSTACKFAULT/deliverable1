@@ -6,7 +6,7 @@ import java.util.Collections;
 import cards.RegularCard;
 import game.Game;
 
-public class War<C extends RegularCard> extends Game<WarPlayer> {
+public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     public List<C> deck;
 
