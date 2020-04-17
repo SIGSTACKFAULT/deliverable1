@@ -1,8 +1,5 @@
 package cards;
 
-import cards.RegularCard.*;
-
-
 public class AcesLow extends RegularCard implements Comparable<AcesLow> { 
     public AcesLow(Suit suit, int value){
         super(suit, value);
