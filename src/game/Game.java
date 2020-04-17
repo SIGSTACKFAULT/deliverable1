@@ -1,4 +1,4 @@
-package war;
+package game;
 
 import java.util.ArrayList;
 
@@ -11,11 +11,11 @@ import cards.Card;
  */
 public abstract class Game {
     private final String gameName; //the title of the game
-    private ArrayList <Player> players; // the players of the game
+    private List <Player> players; // the players of the game
     
-    public Game(String givenName)
+    public Game(String name)
     {
-        gameName = givenName;
+        this.name = name;
         players = new ArrayList<Player>();
     }
 
