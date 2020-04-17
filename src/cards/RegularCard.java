@@ -5,7 +5,7 @@ package cards;
  * Actually implements most of their behaviour.
  * @author SIGSTACKFAULT
  */
-abstract class RegularCard extends Card {
+public abstract class RegularCard extends Card {
 
     enum Suit {
         SPADES, HEARTS, CLUBS, DIAMONDS
