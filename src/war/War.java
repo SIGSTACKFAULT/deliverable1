@@ -15,9 +15,11 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
         this.deck = deck;
     }
 
+    /**
+     * play the game and block until finished.
+     */
     public void play(){
         initGame();
-
     }
 
     /**
