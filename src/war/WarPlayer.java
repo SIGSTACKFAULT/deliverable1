@@ -2,4 +2,5 @@ package war;
 
 import game.Player;
 
-public class WarPlayer extends Player {}
+public abstract class WarPlayer extends Player<War<?>> {
+}

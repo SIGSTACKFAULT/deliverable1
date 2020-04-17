@@ -1,14 +1,15 @@
-package war;
+package main;
 
 import java.util.Scanner;
 
 import cards.AcesHigh;
+import cards.AcesLow;
 
 /**
  * implements outer loop, "play again", etc.
  * @author knrta
  */
-public class War {
+public class Main {
 
     /**
      * @param args the command line arguments

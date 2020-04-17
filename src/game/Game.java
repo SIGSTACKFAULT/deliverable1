@@ -10,39 +10,22 @@ import cards.Card;
  * child of this class and instantiate the methods given.
  * @author dancye, 2018
  */
-public abstract class Game<T extends Player> {
-    private final String gameName; //the title of the game
-    private List <T> players; // the players of the game
+public abstract class Game<P extends Player<?>> {
+    final public String name; //the title of the game
+    List<P> players; // the players of the game
     
     public Game(String name) {
         this.name = name;
-        players = new ArrayList<T>();
+        players = new ArrayList<P>();
     }
 
-    /**
-     * @return the gameName
-     */
-    public String getGameName() 
-    {
-        return gameName;
-    }
-    
      /**
      * @return the players of this game
      */
-    public ArrayList<Player> getPlayers() 
-    {
+    public List<P> getPlayers() {
         return players;
     }
 
-    /**
-     * @param players the players of this game
-     */
-    public void setPlayers(ArrayList<Player> players) 
-    {
-        this.players = players;
-    }
-    
     /**
      * Play the game. This might be one method or many method calls depending
      * on your game.
