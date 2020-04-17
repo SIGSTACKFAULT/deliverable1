@@ -21,5 +21,4 @@ public abstract class Card {
         String self = this.getClass().getSimpleName();
         System.err.printf("%s: (%s) %s", caller, self, this.toString());
     }
-
 }
