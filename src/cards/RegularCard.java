@@ -7,7 +7,7 @@ package cards;
  */
 public abstract class RegularCard extends Card {
 
-    enum Suit {
+    public enum Suit {
         SPADES, HEARTS, CLUBS, DIAMONDS
     };
 
@@ -90,4 +90,7 @@ public abstract class RegularCard extends Card {
     public String toString(){
         return String.format("%c%d", this.getSuitChar(), this.value);
     }
+
+
+    public static void factory(){}
 }

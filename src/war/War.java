@@ -1,15 +1,18 @@
 package war;
 
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Collections;
 
 import cards.RegularCard;
 import game.Game;
 
 public class War<C extends RegularCard> extends Game<WarPlayer> {
 
-    public War(String name){
+    public List<C> deck;
+
+    public War(String name, List<C> deck){
         super(name);
+        this.deck = deck;
     }
 
     public void play(){
@@ -21,8 +24,7 @@ public class War<C extends RegularCard> extends Game<WarPlayer> {
      * shuffle deck, deal, etc.
      */
     private void initGame(){
-        List<C> deck = new LinkedList<C>();
-        
+        Collections.shuffle(deck);
 
     }
 
