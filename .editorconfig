@@ -7,4 +7,4 @@ charst = utf-8
 
 [**.java]
 indent_style = space
-indent_siz = 4
+indent_size = 4
