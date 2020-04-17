@@ -1,5 +1,7 @@
 package war;
 
-public class WarPlayerAI extends WarPlayer {
+import cards.RegularCard;
+
+public class WarPlayerAI<C extends RegularCard> extends WarPlayer<C> {
     // TODO
 }
