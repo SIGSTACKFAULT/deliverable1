@@ -14,8 +14,7 @@ public abstract class Game<T extends Player> {
     private final String gameName; //the title of the game
     private List <T> players; // the players of the game
     
-    public Game(String name)
-    {
+    public Game(String name) {
         this.name = name;
         players = new ArrayList<T>();
     }
