@@ -12,7 +12,7 @@ import cards.Card;
  */
 public abstract class Game<P extends Player<?>> {
     final public String name; //the title of the game
-    List<P> players; // the players of the game
+    protected List<P> players; // the players of the game
     
     public Game(String name) {
         this.name = name;

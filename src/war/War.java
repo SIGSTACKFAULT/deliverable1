@@ -27,7 +27,12 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
      */
     private void initGame(){
         Collections.shuffle(deck);
-
+        // deal cards
+        int i=0;
+        for(C c : deck){
+            WarPlayer<C> p = players.get(i % players.size());
+            p.giveCard(c);
+        }
     }
 
     public void declareWinner(){
