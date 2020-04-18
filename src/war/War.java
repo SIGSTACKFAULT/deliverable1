@@ -10,9 +10,13 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     public List<C> deck;
 
-    public War(String name, List<C> deck){
+    public War(String name, List<C> deck, int bots){
         super(name);
         this.deck = deck;
+        for(int i=0;i<bots+1;i++){
+            this.players.add(new WarPlayer<C>());
+        }
+        System.err.printf("players: %d (%d bots 1 human)\n", players.size(), players.size()-1);
     }
 
     /**
