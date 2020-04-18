@@ -3,8 +3,6 @@ package game;
 import java.util.ArrayList;
 import java.util.List;
 
-import cards.Card;
-
 /**
  * The class that models your game. You should create a more specific
  * child of this class and instantiate the methods given.

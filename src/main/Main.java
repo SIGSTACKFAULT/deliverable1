@@ -23,7 +23,7 @@ public class Main {
             Scanner sc = new Scanner(System.in);
             System.out.printf("1. Play with aces high\n");
             System.out.printf("2. Play with aces low\n");
-            System.out.printf("ctrl-d to quit\n");
+            System.out.printf("[ctrl-d to quit]\n");
             System.out.printf("[12] > ");
             System.out.println("What is your name?");
             String input = sc.nextLine();

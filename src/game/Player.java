@@ -6,7 +6,7 @@ import java.util.UUID;
  *
  * @author knrta
  */
-public abstract class Player<G extends Game> {
+public abstract class Player<G extends Game<?>> {
     private String name; //the unique ID for this player
     
     public Player(){

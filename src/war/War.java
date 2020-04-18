@@ -33,6 +33,16 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
             WarPlayer<C> p = players.get(i % players.size());
             p.giveCard(c);
         }
+
+        // debug
+        for(WarPlayer<C> p : players){
+            System.err.printf("%s:", p.getName());
+            for(C c : p.cards){
+                System.err.printf("%c%d,",c.getSuitChar(),c.getValue());
+            }
+        }
+
+
     }
 
     public void declareWinner(){
