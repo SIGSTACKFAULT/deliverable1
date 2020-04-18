@@ -27,11 +27,4 @@ public abstract class Player<G extends Game> {
     public String getName() {
         return name;
     }
-
-    /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play(G g);
-    
 }
