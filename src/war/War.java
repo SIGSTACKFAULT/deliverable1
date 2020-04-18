@@ -1,7 +1,10 @@
 package war;
 
-import java.util.List;
 import java.util.Collections;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.HashMap;
 
 import cards.RegularCard;
 import game.Game;
@@ -45,10 +48,20 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
         }
     }
 
+    private int roundNum = 0;
     private void playRound(){
-        System.err.printf("> playing round...\n");
+        System.out.printf("--- playing round %d ---\n", ++roundNum);
+        WarRoundState<C> state = new WarRoundState<C>(players);
+        playCards(state);
 
         declareWinner(1);
+    }
+
+    private void playCards(WarRoundState<C> state){
+        if(state == null) state = new WarRoundState<C>();
+        for(WarPlayer<C> p : players){
+            state.get(p).add(p.takeCard());
+        }
     }
 
     public void declareWinner(int id){
