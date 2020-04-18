@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 import cards.AcesHigh;
 import cards.AcesLow;
+import java.util.List;
+import war.War;
+import java.util.Collections;
 
 /**
  * implements outer loop, "play again", etc.
@@ -22,10 +25,15 @@ public class Main {
             System.out.printf("2. Play with aces low\n");
             System.out.printf("ctrl-d to quit\n");
             System.out.printf("[12] > ");
+            System.out.println("What is your name?");
             String input = sc.nextLine();
+            War one = new War(input, List<C> deck);
+            System.out.println("How many players would you like to play with "
+                    + "(Choose 1, 2, 3)?");
+            int PlayerNum = sc.nextInt();
             // init game
             // close sc
-            // game.play()
+            //game.play()
         }
     }
     
