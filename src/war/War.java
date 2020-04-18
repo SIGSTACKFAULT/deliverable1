@@ -40,6 +40,7 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
             for(C c : p.cards){
                 System.err.printf("%c%d,",c.getSuitChar(),c.getValue());
             }
+            // test case: check that every card is accounted for
         }
 
 
