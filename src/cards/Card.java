@@ -16,7 +16,7 @@ public abstract class Card {
     /**
      * using Black Magic™, print a debug message with the caller's name and this card's string.
      */
-    protected final void tell(){
+    public final void tell(){
         String caller = new Throwable().fillInStackTrace().getStackTrace()[1].toString();
         String self = this.getClass().getSimpleName();
         System.err.printf("%s: (%s) %s", caller, self, this.toString());
