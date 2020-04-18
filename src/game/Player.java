@@ -1,8 +1,7 @@
 package game;
 
 /**
- *
- * @author knrta
+ * @author connor
  */
 public abstract class Player<G extends Game<?>> {
     private String name; //the unique ID for this player

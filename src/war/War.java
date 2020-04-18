@@ -9,10 +9,12 @@ import game.Game;
 public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     public List<C> deck;
+    private int winner = -1;
 
     public War(String name, List<C> deck, List<WarPlayer<C>> players){
         super(name);
         this.deck = deck;
+        this.players = players;
         System.err.printf("players: %d\n", players.size());
     }
 
@@ -20,8 +22,12 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
      * play the game and block until finished.
      */
     public void play(){
-        System.err.printf("playing game '%s'...\n", name);
+        System.out.printf("> playing game '%s', %d players...\n", name, players.size());
         initGame();
+
+        while(winner < 0){
+            playRound();
+        }
     }
 
     /**
@@ -32,25 +38,23 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
         // deal cards
         int i=0;
         for(C c : deck){
+            System.err.printf("> giving %s to player index %d\n", c, i++ % players.size());
+            System.err.flush();
             WarPlayer<C> p = players.get(i % players.size());
             p.giveCard(c);
         }
-
-        // debug
-        for(WarPlayer<C> p : players){
-            System.err.printf("%s:", p.getName());
-            for(C c : p.cards){
-                System.err.printf("%c%d,",c.getSuitChar(),c.getValue());
-            }
-            System.err.printf("\n");
-            // test case: check that every card is accounted for
-        }
-
-
     }
 
-    public void declareWinner(){
+    private void playRound(){
+        System.err.printf("> playing round...\n");
 
+        declareWinner(1);
+    }
+
+    public void declareWinner(int id){
+        winner = id;
+        WarPlayer<C> winner = players.get(id);
+        System.out.printf("%s wins!\n\n", winner.getName());
     }
     
 }

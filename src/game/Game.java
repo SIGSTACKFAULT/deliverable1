@@ -29,12 +29,4 @@ public abstract class Game<P extends Player<?>> {
      * on your game.
      */
     public abstract void play();
-    
-    /**
-     * When the game is over, use this method to declare and display a winning
-     * player.
-     */
-    public abstract void declareWinner();
-
-
 }
