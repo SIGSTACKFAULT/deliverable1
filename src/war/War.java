@@ -10,19 +10,17 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     public List<C> deck;
 
-    public War(String name, List<C> deck, int bots){
+    public War(String name, List<C> deck, List<WarPlayer<C>> players){
         super(name);
         this.deck = deck;
-        for(int i=0;i<bots+1;i++){
-            this.players.add(new WarPlayer<C>());
-        }
-        System.err.printf("players: %d (%d bots 1 human)\n", players.size(), players.size()-1);
+        System.err.printf("players: %d\n", players.size());
     }
 
     /**
      * play the game and block until finished.
      */
     public void play(){
+        System.err.printf("playing game '%s'...\n", name);
         initGame();
     }
 
@@ -44,6 +42,7 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
             for(C c : p.cards){
                 System.err.printf("%c%d,",c.getSuitChar(),c.getValue());
             }
+            System.err.printf("\n");
             // test case: check that every card is accounted for
         }
 

@@ -9,8 +9,13 @@ import game.Player;
 public class WarPlayer<C extends RegularCard> extends Player<War<C>> {
     public List<C> cards;
 
-    public WarPlayer(){
+    public WarPlayer(String name){
+        super(name);
         cards = new ArrayList<C>();
+    }
+
+    public WarPlayer(){
+        this(makePlayerName());
     }
 
     public void giveCard(C c){
