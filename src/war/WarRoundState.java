@@ -59,6 +59,7 @@ public class WarRoundState<C extends RegularCard> extends HashMap<WarPlayer<C>, 
         for(WarPlayer<C> p : this.keySet()){
 
         }
+        return winners;
     }
 
     /**
@@ -68,7 +69,7 @@ public class WarRoundState<C extends RegularCard> extends HashMap<WarPlayer<C>, 
         int best = 0;
         for(LinkedList<C> cards : this.values()){
             C card = cards.peekLast();
-            if(c.value > best) best = c.value;
+            if(card.getValue() > best) best = card.getValue();
         }
         return best;
     }
@@ -80,7 +81,7 @@ public class WarRoundState<C extends RegularCard> extends HashMap<WarPlayer<C>, 
     public void eliminateLosers(){
         int best = getBestValue();
         for(WarPlayer<C> p : this.keySet()){
-            if(getTopCard(p).value < best){
+            if(getTopCard(p).getValue() < best){
                 bounty.addAll(remove(p));
             }
         }
