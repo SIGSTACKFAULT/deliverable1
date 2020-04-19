@@ -29,4 +29,8 @@ public abstract class Player<G extends Game<?>> {
     public static String makePlayerName(){
         return "bot-" + playerNameTicker++;
     }
+
+    public String toString(){
+        return this.name;
+    }
 }

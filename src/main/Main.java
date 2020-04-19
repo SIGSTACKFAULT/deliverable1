@@ -47,7 +47,6 @@ public class Main {
                     players.add(new WarPlayer<AcesLow>());
                 war = new War<AcesLow>(gameName, getLowDeck(), players);
             }
-            sc.close();
             war.play();
         }
     }
