@@ -52,17 +52,24 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
     private void playRound(){
         System.out.printf("--- playing round %d ---\n", ++roundNum);
         WarRoundState<C> state = new WarRoundState<C>(players);
-        playCards(state);
+        state.playCards();
+        WarPlayer<C> winner = state.detectSingleWinner();
 
         declareWinner(1);
     }
 
-    private void playCards(WarRoundState<C> state){
-        if(state == null) state = new WarRoundState<C>();
-        for(WarPlayer<C> p : players){
-            state.get(p).add(p.takeCard());
+    private WarPlayer<C> playRoundInternal(WarRoundState<C> state){
+        state.playCards();
+        state.elimateLosers();
+        WarPlayer<C> winner = state.detectSingleWinner();
+        if(winner == null){
+            state.playCards(); state.playCards(); state.playCards();
+            playRoundInternal(state);
+        } else {
+            return winner;
         }
     }
+
 
     public void declareWinner(int id){
         winner = id;
