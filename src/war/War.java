@@ -2,6 +2,7 @@ package war;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import game.Game;
 public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     public List<C> deck;
-    private int winner = -1;
+    private WarPlayer<C> winner = null;
     Scanner sc;
 
     public War(String name, List<C> deck, List<WarPlayer<C>> players) {
@@ -29,7 +30,7 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
         sc = new Scanner(System.in);
         initGame();
 
-        while (winner < 0) {
+        while (winner == null) {
             playRound();
         }
     }
@@ -53,17 +54,28 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
 
     private void playRound() {
         System.out.printf("--- playing round %d ---\n", ++roundNum);
+        System.err.println(this.players);
         WarRoundState<C> state = new WarRoundState<C>(players);
 
         WarPlayer<C> roundWinner = playRoundInternal(state);
         state.giveCardsTo(roundWinner);
         System.out.printf("%s wins the round!\n", roundWinner.getName());
-        for(WarPlayer<C> p : players){
-            System.out.printf("%s: %d cards\n", p, p.cards.size());
+        for(WarPlayer<C> p : new LinkedList<WarPlayer<C>>(players)){
+            System.out.printf("%s: %d cards", p, p.cards.size());
+            if(p.cards.size() < 1){
+                this.players.remove(p);
+                System.out.printf(" - eliminated!");
+            }
+            System.out.printf("\n");
         }
+
+        if(players.size() == 1) {
+            winner = players.get(0);
+            return;
+        }
+
         sc.nextLine();
 
-        // detect if someone has won the game
     }
 
     private WarPlayer<C> playRoundInternal(WarRoundState<C> state){
@@ -77,12 +89,4 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
             return winner;
         }
     }
-
-
-    public void declareWinner(int id){
-        winner = id;
-        WarPlayer<C> winner = players.get(id);
-        System.out.printf("%s wins!\n\n", winner.getName());
-    }
-    
 }
