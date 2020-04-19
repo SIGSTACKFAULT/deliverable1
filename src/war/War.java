@@ -2,9 +2,6 @@ package war;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.HashMap;
 
 import cards.RegularCard;
 import game.Game;
@@ -52,19 +49,21 @@ public class War<C extends RegularCard> extends Game<WarPlayer<C>> {
     private void playRound(){
         System.out.printf("--- playing round %d ---\n", ++roundNum);
         WarRoundState<C> state = new WarRoundState<C>(players);
-        state.playCards();
-        WarPlayer<C> winner = state.detectSingleWinner();
 
-        declareWinner(1);
+        WarPlayer<C> roundWinner = playRoundInternal(state);
+        state.giveCardsTo(roundWinner);
+        System.out.printf("%s wins the round!\n");
+
+        // detect if someone has won the game
     }
 
     private WarPlayer<C> playRoundInternal(WarRoundState<C> state){
         state.playCards();
-        state.elimateLosers();
+        state.eliminateLosers();
         WarPlayer<C> winner = state.detectSingleWinner();
         if(winner == null){
             state.playCards(); state.playCards(); state.playCards();
-            playRoundInternal(state);
+            return playRoundInternal(state);
         } else {
             return winner;
         }
